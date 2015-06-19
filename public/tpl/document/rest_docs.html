@@ -1,0 +1,2102 @@
+
+<div class="hbox hbox-auto-xs  hbox-auto-sm">
+  <!-- .aside -->
+  <div class="col w w-auto-xs bg-light inherit dk b-r">
+    <div class="wrapper-md b-b">
+      <a class="btn btn-link pull-right m-t-n-xs m-r-n-sm visible-sm visible-xs" ui-toggle-class="show" data-target="#nav-docs">
+        <i class="fa fa-bars"></i>
+      </a>
+      <span class="h4">Documents</span>
+    </div>
+    <div class="hidden-sm hidden-xs" id="nav-docs">
+      <ul class="nav">
+        <li class="padder b-b l-h-2x bg text-info"><em>Summery</em></li>
+        <li><a ui-scroll="quickreference">Quick Reference</a></li>
+        <li><a ui-scroll="requestformat">Request Format</a></li>
+        <li><a ui-scroll="responseformat">Response Format</a></li>
+
+        <li class="padder b-b l-h-2x bg text-success"><em>Entity</em></li>
+        <li><a ui-scroll="bootstrap">Entity Format</a></li>
+        <li><a ui-scroll="icons">Creating Entity</a></li>
+        <li><a ui-scroll="animate">Retreving Entity</a></li>
+        <li><a ui-scroll="colors">Updating Entity</a></li>
+        <li><a ui-scroll="layout">Deleting Entity</a></li>
+        <li><a ui-scroll="utilities">Batch Operations</a></li>
+        <li><a ui-scroll="utilities">Data Types</a></li>
+
+          <li class="padder b-b l-h-2x bg text-danger"><em>Queries</em></li>
+          <li><a ui-scroll="bootstrap">Basic Queries</a></li>
+          <li><a ui-scroll="icons">Query Constraints</a></li>
+          <li><a ui-scroll="animate">Queries on Array Values</a></li>
+          <li><a ui-scroll="colors">Counting Entity</a></li>
+
+        <li ui-scroll="core" class="padder b-b b-t l-h-2x bg text-primary"><em>Users</em></li>
+        <li><a ui-scroll="ui-router">Signing up</a></li>
+        <li><a ui-scroll="ui-load">Logging In</a></li>
+        <li><a ui-scroll="ui-jq">Retrieving Users</a></li>
+        <li><a ui-scroll="ui-module">Validating Session Tokens</a></li>
+        <li><a ui-scroll="ui-validate">Retrieving Current User</a></li>
+          <li><a ui-scroll="ui-validate">Updating User</a></li>
+          <li><a ui-scroll="ui-validate">Querying</a></li>
+          <li><a ui-scroll="ui-validate">Deleting Users</a></li>
+          <li><a ui-scroll="ui-validate">Linking Users</a></li>
+          <li><a ui-scroll="ui-validate">Security</a></li>
+
+        <li ui-scroll="directives" class="padder b-b b-t l-h-2x bg text-info"><em>Files</em></li>
+        <li><a ui-scroll="ui-toggle-class">Uploading Files</a></li>
+        <li><a ui-scroll="ui-shift">Associating with Entity</a></li>
+        <li><a ui-scroll="ui-scroll">Deleting Files</a></li>
+
+          <li ui-scroll="directives" class="padder b-b b-t l-h-2x bg text-success"><em>Config</em></li>
+          <li><a ui-scroll="ui-toggle-class">Uploading Files</a></li>
+          <li><a ui-scroll="ui-shift">Associating with Entity</a></li>
+          <li><a ui-scroll="ui-scroll">Deleting Files</a></li>
+
+
+          <li ui-scroll="plugins" class="padder b-b b-t l-h-2x bg text-danger"><em>Push Notifications</em></li>
+          <li ui-scroll="directives" class="padder b-b b-t l-h-2x bg text-primary"><em>Installations</em></li>
+          <li><a ui-scroll="ui-toggle-class">Uploading Installation Data</a></li>
+          <li><a ui-scroll="ui-shift">Retrieving Installations</a></li>
+          <li><a ui-scroll="ui-scroll">Updating Installations</a></li>
+          <li><a ui-scroll="plugins">Querying Installations</a></li>
+          <li><a ui-scroll="plugins">Deleting Installations</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /.aside -->
+  <div class="col">
+    <div class="clearfix padder-md">
+        <a href="#" name="summary"></a><a href="#" class="section section_major " name="summary_anchor"></a>
+        <a href="#" name="general"></a><a href="#" class="section section_minor " name="general_anchor"></a>
+        <div class='app_name' style='float:right'></div>
+        <h1>REST API</h1>
+
+        <p>The REST API lets you interact with Plugy from anything that can send an HTTP request. There are many things you can do with the REST API. For example:</p>
+
+        <ul class="text">
+            <li>A mobile website can access Plugy data from Javascript.</li>
+            <li>A webserver can show data from Plugy on a website.</li>
+            <li>You can upload large amounts of data that will later be consumed in a mobile app.</li>
+            <li>You can download recent data to run your own custom analytics.</li>
+            <li>Applications written in any programming language can interact with data on Plugy.</li>
+            <li>You can export all of your data if you no longer want to use Plugy.</li>
+        </ul>
+
+        <a href="#" name="general-quick"></a><a href="#" class="section section_minor " name="general-quick_anchor"></a>
+        <h3 id="quickreference">Quick Reference</h3>
+
+        <p>All API access is over HTTPS, and accessed via the <code>http://api.plugy.com</code> domain. The relative path prefix <code>/1/</code> indicates that we are currently using version 1 of the API.
+
+        <h4>Entity</h4>
+
+        <table class="endpoints">
+            <tr>
+                <th>URL</th><th>HTTP Verb</th><th>Functionality</th>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/classes/&lt;className&gt;</code></td>
+                <td>POST</td>
+                <td><a href="#objects-creating">Creating Entity</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/classes/&lt;className&gt;/&lt;EntityId&gt;</code></td>
+                <td>GET</td>
+                <td><a href="#objects-retrieving">Retrieving Entity</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/classes/&lt;className&gt;/&lt;EntityId&gt;</code></td>
+                <td>PUT</td>
+                <td><a href="#objects-updating">UpdatingO Entity</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/classes/&lt;className&gt;</code></td>
+                <td>GET</td>
+                <td><a href="#queries">Queries</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/classes/&lt;className&gt;/&lt;EntityId&gt;</code></td>
+                <td>DELETE</td>
+                <td><a href="#objects-deleting">Deleting Entity</a></td>
+            </tr>
+        </table>
+
+        <h4>Users</h4>
+        <table class="endpoints">
+            <tr>
+                <th>URL</th><th>HTTP Verb</th><th>Functionality</th>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/users</code></td>
+                <td>POST</td>
+                <td>
+                    <a href="#users-signup">Signing Up</a>
+                    <br />
+                    <a href="#users-linking">Linking Users</a>
+                </td>
+            </tr>
+            <tr>
+                <td><code>/1/login</code></td>
+                <td>GET</td>
+                <td><a href="#users-login">Logging In</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/users/&lt;EntityId&gt;</code></td>
+                <td>GET</td>
+                <td><a href="#users-retrieving">Retrieving Users</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/users/me</code></td>
+                <td>GET</td>
+                <td>
+                    <a href="#users-validating">Validating Session Tokens</a>
+                    <br />
+                    <a href="#users-validating">Retrieving Current User</a>
+                </td>
+            </tr>
+            <tr>
+                <td><code>/1/users/&lt;EntityId&gt;</code></td>
+                <td>PUT</td>
+                <td>
+                    <a href="#users-updating">Updating Users</a>
+                    <br />
+                    <a href="#users-linking">Linking Users</a>
+                    <br />
+                    <a href="#users-emailverification">Verifying Emails</a>
+                </td>
+            </tr>
+            <tr>
+                <td><code>/1/users</code></td>
+                <td>GET</td>
+                <td><a href="#users-querying">Querying Users</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/users/&lt;EntityId&gt;</code></td>
+                <td>DELETE</td>
+                <td><a href="#users-deleting">Deleting Users</a></td>
+            </tr>
+        </table>
+
+        <h4>Files</h4>
+        <table class="endpoints">
+            <tr>
+                <th>URL</th><th>HTTP Verb</th><th>Functionality</th>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/files/&lt;fileName&gt;</code></td>
+                <td>POST</td>
+                <td><a href="#files-uploading">Uploading Files</a></td>
+            </tr>
+        </table>
+
+        <h4>Push Notifications</h4>
+        <table class="endpoints">
+            <tr>
+                <th>URL</th><th>HTTP Verb</th><th>Functionality</th>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/push</code></td>
+                <td>POST</td>
+                <td><a href="#push">Push Notifications</a></td>
+            </tr>
+        </table>
+
+        <h4>Installations</h4>
+        <table class="endpoints">
+            <tr>
+                <th>URL</th><th>HTTP Verb</th><th>Functionality</th>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/installations</code></td>
+                <td>POST</td>
+                <td><a href="#installations-uploading">Uploading Installation Data</a></td>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/installations/&lt;EntityId&gt;</code></td>
+                <td>GET</td>
+                <td><a href="#installations-retrieving">Retrieving Installations</a></td>
+            </tr>
+            <tr>
+                <td class="url"><code>/1/installations/&lt;EntityId&gt;</code></td>
+                <td>PUT</td>
+                <td><a href="#installations-updating">Updating Installations</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/installations</code></td>
+                <td>GET</td>
+                <td><a href="#installations-querying">Querying Installations</a></td>
+            </tr>
+            <tr>
+                <td><code>/1/installations/&lt;EntityId&gt;</code></td>
+                <td>DELETE</td>
+                <td><a href="#installations-deleting">Deleting Installations</a></td>
+            </tr>
+        </table>
+
+
+        <a href="#" name="general-requests"></a><a href="#" class="section section_minor " name="general-requests_anchor"></a>
+        <h3 id="requestformat">Request Format</h3>
+`
+        <p>For POST and PUT requests,
+            the request body must be JSON,
+            with the <code>Content-Type</code> header
+            set to <code>application/json</code>.
+        </p>
+
+        <p>Authentication is done via HTTP headers.
+            The <code>Application-Id</code> header identifies which application you are accessing,
+            and the <code>REST-API-Key</code> header authenticates the endpoint.
+
+            In the examples with <code>curl</code> that follow,
+            the headers are stored in shell variables <code>APPLICATION_ID</code> and <code>REST_API_KEY</code>,
+            so to follow along in the terminal,
+            export these variables:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">export APPLICATION_ID=&quot;your application id&quot;
+export REST_API_KEY=&quot;your REST API key&quot;</pre></div>
+
+
+
+        <a href="#" name="general-responses"></a><a href="#" class="section section_minor " name="general-responses_anchor"></a>
+        <h3 id="responseformat">Response Format</h3>
+
+        <p>The response format for all requests is a JSON object.</p>
+
+        <p>Whether a request succeeded is indicated by the HTTP status code. A 2xx status code indicates success, whereas a 4xx status code indicates failure. When a request fails, the response body is still JSON, but always contains the fields <code>code</code> and <code>error</code> which you can inspect to use for debugging. For example, trying to save an object with invalid keys will return the message:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;code&quot;: 105,
+  &quot;error&quot;: &quot;invalid field name: bl!ng&quot;
+}</pre></div>
+
+        <a href="#" name="objects"></a><a href="#" class="section section_major " name="objects_anchor"></a>
+        <h2>Entity</h2>
+
+        <a href="#" name="objects-classes"></a><a href="#" class="section section_minor " name="objects-classes_anchor"></a>
+        <h3>Entity Format</h3>
+
+        <p>Storing data through the Plugy REST API is built around a JSON encoding of the object's data. This data is schemaless, which means that you don't need to specify ahead of time what keys exist on each object. You simply set whatever key-value pairs you want, and the backend will store it.</p>
+
+        <p>For example, let's say you're tracking high scores for a game. A single object could contain:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;score&quot;: 1337,
+  &quot;playerName&quot;: &quot;Sean Plott&quot;,
+  &quot;cheatMode&quot;: false
+}</pre></div>
+
+        <p>Keys must be alphanumeric strings. Values can be anything that can be JSON-encoded.</p>
+
+        <p>Each object has a class name that you can use to distinguish different sorts of data. For example, we could call the high score object a <code>GameScore</code>. We recommend that you NameYourClassesLikeThis and nameYourKeysLikeThis, just to keep your code looking pretty.</p>
+
+        <p>When you retrieve objects from Plugy, some fields are automatically added: <code>createdAt</code>, <code>updatedAt</code>, and <code>EntityId</code>. These field names are reserved, so you cannot set them yourself. The object above could look like this when retrieved:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;score&quot;: 1337,
+  &quot;playerName&quot;: &quot;Sean Plott&quot;,
+  &quot;cheatMode&quot;: false,
+  &quot;createdAt&quot;: &quot;2011-08-20T02:06:57.931Z&quot;,
+  &quot;updatedAt&quot;: &quot;2011-08-20T02:06:57.931Z&quot;,
+  &quot;_id&quot;: &quot;Ed1nuqPvcm&quot;
+}</pre></div>
+
+        <p><code>createdAt</code> and <code>updatedAt</code> are UTC timestamps stored in ISO 8601 format with millisecond precision: <code>YYYY-MM-DDTHH:MM:SS.MMMZ</code>. <code>EntityId</code> is a string unique to this class that identifies this object.</p>
+
+        <p>In the REST API, the class-level operations operate on a resource based on just the class name. For example, if the class name is <code>GameScore</code>, the class URL is:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">http://api.plugy.io/1/classes/GameScore</pre></div>
+        <p>Users have a special class-level url:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">http://api.plugy.io/1/users</pre></div>
+        <p>The operations specific to a single object are available a nested URL. For example, operations specific to the <code>GameScore</code> above with <code>EntityId</code> equal to <code>Ed1nuqPvcm</code> would use the object URL:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div>
+        <a href="#" name="objects-creating"></a><a href="#" class="section section_minor " name="objects-creating_anchor"></a>
+        <h3>Creating Entity</h3>
+
+        <p>To create a new object on Plugy, send a POST request to the class URL containing the contents of the object. For example, to create the object described above:</p>
+
+        <div class="code-container" id="container1"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/classes/GameScore&#x27;, json.dumps({
+       &quot;score&quot;: 1337,
+       &quot;playerName&quot;: &quot;Sean Plott&quot;,
+       &quot;cheatMode&quot;: False
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;score&quot;:1337,&quot;playerName&quot;:&quot;Sean Plott&quot;,&quot;cheatMode&quot;:false}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>When the creation is successful, the HTTP response is a <code>201 Created</code> and the <code>Location</code> header contains the object URL for the new object:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">Status: 201 Created
+Location: http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div>
+        <p>The response body is a JSON object containing the <code>EntityId</code> and the <code>createdAt</code> timestamp of the newly-created object:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;createdAt&quot;: &quot;2011-08-20T02:06:57.931Z&quot;,
+  &quot;_id&quot;: &quot;Ed1nuqPvcm&quot;
+}</pre></div>
+
+        <a href="#" name="objects-retrieving"></a><a href="#" class="section section_minor " name="objects-retrieving_anchor"></a>
+        <h3>Retrieving Entity</h3>
+
+        <p>Once you've created an object, you can retrieve its contents by sending a GET request to the object URL returned in the location header. For example, to retrieve the object we created above:</p>
+
+        <div class="code-container"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing all the user-provided fields, plus the <code>createdAt</code>, <code>updatedAt</code>, and <code>EntityId</code> fields:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;score&quot;: 1337,
+  &quot;playerName&quot;: &quot;Sean Plott&quot;,
+  &quot;cheatMode&quot;: false,
+  &quot;skills&quot;: [
+    &quot;pwnage&quot;,
+    &quot;flying&quot;
+  ],
+  &quot;createdAt&quot;: &quot;2011-08-20T02:06:57.931Z&quot;,
+  &quot;updatedAt&quot;: &quot;2011-08-20T02:06:57.931Z&quot;,
+  &quot;_id&quot;: &quot;Ed1nuqPvcm&quot;
+}</pre></div>
+
+        <p>When retrieving objects that have pointers to children, you can fetch child objects by using the <code>include</code> option. For instance, to fetch the object pointed to by the "game" key:
+
+        <div class="code-container" id="container3"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;include&quot;:&quot;game&quot;})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;include=game&#x27; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <a href="#" name="objects-updating"></a><a href="#" class="section section_minor " name="objects-updating_anchor"></a>
+        <h3>Updating Entity</h3>
+
+        <p>To change the data on an object that already exists, send a PUT request to the object URL. Any keys you don't specify will remain unchanged, so you can update just a subset of the object's data. For example, if we wanted to change the score field of our object:</p>
+
+        <div class="code-container" id="container4"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, json.dumps({
+       &quot;score&quot;: 73453
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;score&quot;:73453}&#x27; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing just an <code>updatedAt</code> field with the timestamp of the update.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;updatedAt&quot;: &quot;2011-08-21T18:02:52.248Z&quot;
+}</pre></div>
+
+        <h4>Counters</h4>
+
+        <p>To help with storing counter-type data, Plugy provides the ability to atomically increment (or decrement) any number field. So, we can increment the score field like so:</p>
+
+        <div class="code-container" id="container5"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, json.dumps({
+       &quot;score&quot;: {
+         &quot;__op&quot;: &quot;Increment&quot;,
+         &quot;amount&quot;: 1
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;score&quot;:{&quot;__op&quot;:&quot;Increment&quot;,&quot;amount&quot;:1}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <p>To decrement the counter, use the <code>Increment</code> operator with a negative number:</p>
+
+        <div class="code-container" id="container6"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, json.dumps({
+       &quot;score&quot;: {
+         &quot;__op&quot;: &quot;Increment&quot;,
+         &quot;amount&quot;: -1
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;score&quot;:{&quot;__op&quot;:&quot;Increment&quot;,&quot;amount&quot;:-1}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <h4>Arrays</h4>
+
+        <p>To help with storing array data, there are three operations that can be used to atomically change an array field:</p>
+
+        <ul class="text">
+            <li><code>Add</code> appends the given array of objects to the end of an array field.</li>
+            <li><code>AddUnique</code> adds only the given objects which aren't already contained in an array field to that field. The position of the insert is not guaranteed.</li>
+            <li><code>Remove</code> removes all instances of each given object from an array field.</li>
+        </ul>
+
+        <p>Each method takes an array of objects to add or remove in the "objects" key. For example, we can add items to the set-like "skills" field like so:</p>
+
+        <div class="code-container" id="container7"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, json.dumps({
+       &quot;skills&quot;: {
+         &quot;__op&quot;: &quot;AddUnique&quot;,
+         &quot;objects&quot;: [
+           &quot;flying&quot;,
+           &quot;kungfu&quot;
+         ]
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;skills&quot;:{&quot;__op&quot;:&quot;AddUnique&quot;,&quot;objects&quot;:[&quot;flying&quot;,&quot;kungfu&quot;]}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <h3>Deleting Entity</h3>
+
+        <p>To delete an object from the Plugy Cloud, send a DELETE request to its object URL. For example:</p>
+
+        <div class="code-container" id="container10"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;DELETE&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X DELETE \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <p>You can delete a single field from an object by using the <code>Delete</code> operation:</p>
+
+        <div class="code-container" id="container11"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/classes/GameScore/Ed1nuqPvcm&#x27;, json.dumps({
+       &quot;opponents&quot;: {
+         &quot;__op&quot;: &quot;Delete&quot;
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;opponents&quot;:{&quot;__op&quot;:&quot;Delete&quot;}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore/Ed1nuqPvcm</pre></div></div></div></div>
+
+        <a href="#" name="objects-batch"></a><a href="#" class="section section_minor " name="objects-batch_anchor"></a>
+        <h3>Batch Operations</h3>
+
+        <p>To reduce the amount of time spent on network round trips, you can create, update, or delete up to 50 objects in one call, using the batch endpoint.</p>
+
+        <p>Each command in a batch has <code>method</code>, <code>path</code>, and <code>body</code> parameters that specify the HTTP command that would normally be used for that command. The commands are run in the order they are given. For example, to create a couple of <code>GameScore</code> objects:</p>
+        <div class="code-container" id="container12"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/batch&#x27;, json.dumps({
+       &quot;requests&quot;: [
+         {
+           &quot;method&quot;: &quot;create&quot;,
+           &quot;class&quot;: &quot;GameScore&quot;,
+           &quot;entity&quot;: {
+             &quot;score&quot;: 1337,
+             &quot;playerName&quot;: &quot;Sean Plott&quot;
+           }
+         },
+         {
+            &quot;method&quot;: &quot;create&quot;,
+            &quot;class&quot;: &quot;GameScore&quot;,
+            &quot;entity&quot;: {
+             &quot;score&quot;: 1337,
+             &quot;playerName&quot;: &quot;Sean Plott&quot;
+           }
+         }
+       ]
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;requests&quot;: [
+          {
+            &quot;method&quot;: &quot;create&quot;,
+            &quot;class&quot;: &quot;GameScore&quot;,
+            &quot;entity&quot;: {
+              &quot;score&quot;: 1337,
+              &quot;playerName&quot;: &quot;Sean Plott&quot;
+            }
+          },
+          {
+
+            &quot;method&quot;: &quot;create&quot;,
+            &quot;class&quot;: &quot;GameScore&quot;,
+            &quot;entity&quot;: {
+              &quot;score&quot;: 1338,
+              &quot;playerName&quot;: &quot;ZeroCool&quot;
+            }
+          }
+        ]
+      }&#x27; \
+  http://api.plugy.io/1/batch</pre></div></div></div></div>
+
+        <p>The response from batch will be a list with the same number of elements as the input list. Each item in the list with be a dictionary with either the <code>success</code> or <code>error</code> field set. The value of <code>success</code> will be the normal response to the equivalent REST command:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;success&quot;: {
+    &quot;createdAt&quot;: &quot;2012-06-15T16:59:11.276Z&quot;,
+    &quot;_id&quot;: &quot;YAfSAWwXbL&quot;
+  }
+}</pre></div>
+
+        <p>The value of <code>error</code> will be an object with a numeric <code>code</code> and <code>error</code> string:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;error&quot;: {
+    &quot;code&quot;: 101,
+    &quot;error&quot;: &quot;object not found for delete&quot;
+  }
+}</pre></div>
+
+        <p>Other commands that work in a batch are <code>update</code> and <code>delete</code>.</p>
+        <div class="code-container" id="container13"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/batch&#x27;, json.dumps({
+       &quot;requests&quot;: [
+         {
+            &quot;method&quot;: &quot;create&quot;,
+            &quot;class&quot;: &quot;GameScore&quot;,
+            &quot;entity&quot;: {
+              &quot;score&quot;: 1338,
+              &quot;playerName&quot;: &quot;ZeroCool&quot;
+            }
+         },
+         {
+            &quot;method&quot;: &quot;delete&quot;,
+            &quot;class&quot;: &quot;/1/classes/GameScore&quot;,
+            &quot;_id&quot;: &quot;Cpl9lrueY5&quot;
+         }
+       ]
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;requests&quot;: [
+          {
+            &quot;method&quot;: &quot;create&quot;,
+            &quot;class&quot;: &quot;GameScore&quot;,
+            &quot;_id&quot;: &quot;Cpl9lrueY5&quot;,
+            &quot;entity&quot;: {
+              &quot;score&quot;: 999999
+            }
+          },
+          {
+            &quot;method&quot;: &quot;delete&quot;,
+            &quot;class&quot;: &quot;/1/classes/GameScore&quot;,
+            &quot;_id&quot;: &quot;Cpl9lrueY5&quot;
+          }
+        ]
+      }&#x27; \
+  http://api.plugy.io/1/batch</pre></div></div></div></div>
+
+        <a href="#" name="objects-types"></a><a href="#" class="section section_minor " name="objects-types_anchor"></a>
+
+        <p>Note that N requests sent in a batch will still count toward your request limit as N requests.</p>
+
+        <h3>Data Types</h3>
+
+        <p>So far we have only used values that can be encoded with standard JSON. The Plugy mobile client libraries also support dates, binary data, and relational data. In the REST API, these values are encoded as JSON hashes with the <code>__type</code> field set to indicate their type, so you can read or write these fields if you use the correct encoding.</p>
+
+        <p>The <code>Date</code> type contains a field <code>iso</code> which contains a UTC timestamp stored in ISO 8601 format with millisecond precision: <code>YYYY-MM-DDTHH:MM:SS.MMMZ</code>.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;__type&quot;: &quot;Date&quot;,
+  &quot;iso&quot;: &quot;2011-08-21T18:02:52.249Z&quot;
+}</pre></div>
+
+        <p>Dates are useful in combination with the built-in <code>createdAt</code> and <code>updatedAt</code> fields. For example, to retrieve objects created since a particular time, just encode a Date in a comparison query:</p>
+
+        <div class="code-container" id="container14"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;createdAt&quot;: {
+         &quot;$gte&quot;: {
+           &quot;__type&quot;: &quot;Date&quot;,
+           &quot;iso&quot;: &quot;2011-08-21T18:02:52.249Z&quot;
+         }
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;createdAt&quot;:{&quot;$gte&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2011-08-21T18:02:52.249Z&quot;}}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>The <code>Bytes</code> type contains a field <code>base64</code> which contains a base64 encoding of binary data. The specific base64 encoding is the one used by MIME, and does not contain whitespace.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;__type&quot;: &quot;Bytes&quot;,
+  &quot;base64&quot;: &quot;VGhpcyBpcyBhbiBlbmNvZGVkIHN0cmluZw==&quot;
+}</pre></div>
+
+        <p>The <code>Pointer</code> type is used when mobile code sets a <code>PFEntity</code> or <code>PlugyEntity</code> as the value of another object. It contains the <code>className</code> and <code>EntityId</code> of the referred-to value.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;__type&quot;: &quot;Pointer&quot;,
+  &quot;className&quot;: &quot;GameScore&quot;,
+  &quot;_id&quot;: &quot;Ed1nuqPvc&quot;
+}</pre></div>
+
+        <p>Pointers to user objects have a <code>className</code> of <code>_User</code>. Prefixing with an underscore is forbidden for developer-defined classes and signifies the class is a special built-in.</p>
+
+
+        <p>The <code>Relation</code> type is used for many-to-many relations when the mobile uses <code>PFRelation</code> or <code>PlugyRelation</code> as a value.  It has a <code>className</code> that is the class name of the target objects.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;__type&quot;: &quot;Relation&quot;,
+  &quot;className&quot;: &quot;GameScore&quot;
+}</pre></div>
+
+        <p>When querying, <code>Relation</code> objects behave like arrays of Pointers. Any operation that is valid for arrays of pointers (other than <code>include</code>) works for <code>Relation</code> objects.</p>
+
+        <p>When more data types are added, they will also be represented as hashes with a <code>__type</code> field set, so you may not use this field yourself on JSON objects.</p>
+
+        <a href="#" name="queries"></a><a href="#" class="section section_major " name="queries_anchor"></a>
+        <h2>Queries</h2>
+
+        <a href="#" name="queries-basic"></a><a href="#" class="section section_minor " name="queries-basic_anchor"></a>
+        <h3>Basic Queries</h3>
+
+        <p>You can retrieve multiple objects at once by sending a GET request to the class URL. Without any URL parameters, this simply lists objects in the class:</p>
+
+        <div class="code-container" id="container15"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>The return value is a JSON object that contains a <code>results</code> field with a JSON array that lists the objects.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;results&quot;: [
+    {
+      &quot;playerName&quot;: &quot;Jang Min Chul&quot;,
+      &quot;updatedAt&quot;: &quot;2011-08-19T02:24:17.787Z&quot;,
+      &quot;cheatMode&quot;: false,
+      &quot;createdAt&quot;: &quot;2011-08-19T02:24:17.787Z&quot;,
+      &quot;_id&quot;: &quot;A22v5zRAgd&quot;,
+      &quot;score&quot;: 80075
+    },
+    {
+      &quot;playerName&quot;: &quot;Sean Plott&quot;,
+      &quot;updatedAt&quot;: &quot;2011-08-21T18:02:52.248Z&quot;,
+      &quot;cheatMode&quot;: false,
+      &quot;createdAt&quot;: &quot;2011-08-20T02:06:57.931Z&quot;,
+      &quot;_id&quot;: &quot;Ed1nuqPvcm&quot;,
+      &quot;score&quot;: 73453
+    }
+  ]
+}</pre></div>
+
+        <a href="#" name="queries-constraints"></a><a href="#" class="section section_minor " name="queries-constraints_anchor"></a>
+        <h3>Query Constraints</h3>
+
+        <p>There are several ways to put constraints on the objects found, using the <code>where</code> URL parameter. The value of the <code>where</code> parameter should be encoded JSON. Thus, if you look at the actual URL requested, it would be JSON-encoded, then URL-encoded. The simplest use of the <code>where</code> parameter is constraining the value for keys. For example, if we wanted to retrieve Sean Plott's scores that were not in cheat mode, we could do:</p>
+
+        <div class="code-container" id="container16"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;playerName&quot;: &quot;Sean Plott&quot;,
+       &quot;cheatMode&quot;: False
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;playerName&quot;:&quot;Sean Plott&quot;,&quot;cheatMode&quot;:false}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>The values of the <code>where</code> parameter also support comparisons besides exact matching. Instead of an exact value, provide a hash with keys corresponding to the comparisons to do. The <code>where</code> parameter supports these options:</p>
+
+        <table class="whereOptions">
+            <tr>
+                <th>Key</th>
+                <th>Operation</th>
+            </tr>
+            <tr>
+                <td>$lt</td>
+                <td>Less Than</td>
+            </tr>
+            <tr>
+                <td>$lte</td>
+                <td>Less Than Or Equal To</td>
+            </tr>
+            <tr>
+                <td>$gt</td>
+                <td>Greater Than</td>
+            </tr>
+            <tr>
+                <td>$gte</td>
+                <td>Greater Than Or Equal To</td>
+            </tr>
+            <tr>
+                <td>$ne</td>
+                <td>Not Equal To</td>
+            </tr>
+            <tr>
+                <td>$in</td>
+                <td>Contained In</td>
+            </tr>
+            <tr>
+                <td>$nin</td>
+                <td>Not Contained in</td>
+            </tr>
+            <tr>
+                <td>$exists</td>
+                <td>A value is set for the key</td>
+            </tr>
+            <tr>
+                <td>$select</td>
+                <td>This matches a value for a key in the result of a different query</td>
+            </tr>
+            <tr>
+                <td>$dontSelect</td>
+                <td>Requires that a key's value not match a value for a key in the result of a different query</td>
+            </tr>
+            <tr>
+                <td>$all</td>
+                <td>Contains all of the given values</td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <p>For example, to retrieve scores between 1000 and 3000, including the endpoints, we could issue:</p>
+
+        <div class="code-container" id="container17"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;score&quot;: {
+         &quot;$gte&quot;: 1000,
+         &quot;$lte&quot;: 3000
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;score&quot;:{&quot;$gte&quot;:1000,&quot;$lte&quot;:3000}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>To retrieve scores equal to an odd number below 10, we could issue:</p>
+
+        <div class="code-container" id="container18"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;score&quot;: {
+         &quot;$in&quot;: [
+           1,
+           3,
+           5,
+           7,
+           9
+         ]
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;score&quot;:{&quot;$in&quot;:[1,3,5,7,9]}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>To retrieve scores not by a given list of players we could issue:</p>
+
+        <div class="code-container" id="container19"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;playerName&quot;: {
+         &quot;$nin&quot;: [
+           &quot;Jonathan Walsh&quot;,
+           &quot;Dario Wunsch&quot;,
+           &quot;Shawn Simon&quot;
+         ]
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;playerName&quot;:{&quot;$nin&quot;:[&quot;Jonathan Walsh&quot;,&quot;Dario Wunsch&quot;,&quot;Shawn Simon&quot;]}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>To retrieve documents with the score set, we could issue:</p>
+
+        <div class="code-container" id="container20"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;score&quot;: {
+         &quot;$exists&quot;: True
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;score&quot;:{&quot;$exists&quot;:true}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>To retrieve documents without the score set, we could issue:</p>
+
+        <div class="code-container" id="container21"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;score&quot;: {
+         &quot;$exists&quot;: False
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;score&quot;:{&quot;$exists&quot;:false}}&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>If you have a class containing sports teams and you store a user's hometown in the user class, you can issue one query to find the list of users whose hometown teams have winning records.  The query would look like:</p>
+        <div class="code-container" id="container22"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;hometown&quot;: {
+         &quot;$select&quot;: {
+           &quot;query&quot;: {
+             &quot;className&quot;: &quot;Team&quot;,
+             &quot;where&quot;: {
+               &quot;winPct&quot;: {
+                 &quot;$gt&quot;: 0.5
+               }
+             }
+           },
+           &quot;key&quot;: &quot;city&quot;
+         }
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/_User?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;hometown&quot;:{&quot;$select&quot;:{&quot;query&quot;:{&quot;className&quot;:&quot;Team&quot;,&quot;where&quot;:{&quot;winPct&quot;:{&quot;$gt&quot;:0.5}}},&quot;key&quot;:&quot;city&quot;}}}&#x27; \
+  http://api.plugy.io/1/classes/_User</pre></div></div></div></div>
+
+        <p>You can use the <code>order</code> parameter to specify a field to sort by. Prefixing with a negative sign reverses the order. Thus, to retrieve scores in ascending order:</p>
+
+        <div class="code-container" id="container23"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;order&quot;:&quot;score&quot;})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;order=score&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>And to retrieve scores in descending order:</p>
+
+        <div class="code-container" id="container24"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;order&quot;:&quot;-score&quot;})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;order=-score&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>You can sort by multiple fields by passing <code>order</code> a comma-separated list. To retrieve documents that are ordered by scores in ascending order and the names in descending order:</p>
+
+        <div class="code-container" id="container25"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;order&quot;:&quot;score,-name&quot;})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;order=score,-name&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>You can use the <code>limit</code> and <code>skip</code> parameters for pagination. <code>limit</code> defaults to 100, but anything from 1 to 1000 is a valid limit. Thus, to retrieve 200 objects after skipping the first 400:</p>
+
+        <div class="code-container" id="container26"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;limit&quot;:200,&quot;skip&quot;:400})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;limit=200&#x27; \
+  --data-urlencode &#x27;skip=400&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>You can restrict the fields returned by passing <code>keys</code> a comma-separated list. To retrieve documents that contain only the <code>score</code> and <code>playerName</code> fields (and also special built-in fields such as <code>EntityId</code>, <code>createdAt</code>, and <code>updatedAt</code>):</p>
+        <div class="code-container" id="container27"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;keys&quot;:&quot;score,playerName&quot;})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;keys=score,playerName&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+
+        <p>All of these parameters can be used in combination with each other.</p>
+
+        <a href="#" name="queries-arrays"></a><a href="#" class="section section_minor " name="queries-arrays_anchor"></a>
+        <h3> Queries on Array Values</h3>
+
+        <p>For keys with an array type, you can find objects where the key's array value contains 2 by:</p>
+
+        <div class="code-container" id="container28"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;arrayKey&quot;: 2
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/RandomEntity?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;arrayKey&quot;:2}&#x27; \
+  http://api.plugy.io/1/classes/RandomEntity</pre></div></div></div></div>
+
+        <p>You can also use the <code>$all</code> operator to find objects with an array field which contains each of the values 2, 3, and 4 by:</p>
+
+        <div class="code-container" id="container29"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;arrayKey&quot;: {
+         &quot;$all&quot;: [
+           2,
+           3,
+           4
+         ]
+       }
+     })})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/RandomEntity?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;arrayKey&quot;:{&quot;$all&quot;:[2,3,4]}}&#x27; \
+  http://api.plugy.io/1/classes/RandomEntity</pre></div></div></div></div>
+
+        <a href="#" name="queries-relational"></a><a href="#" class="section section_minor " name="queries-relational_anchor"></a>
+        <h3>Counting Entity</h3>
+
+        <p>If you are limiting your query, or if there are a very large number of results, and you want to know how many total results there are without returning them all, you can use the <code>count</code> parameter. For example, if you only care about the number of games played by a particular player:</p>
+
+        <div class="code-container" id="container36"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;where&quot;:json.dumps({
+       &quot;playerName&quot;: &quot;Jonathan Walsh&quot;
+     }),&quot;count&quot;:1,&quot;limit&quot;:0})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/classes/GameScore?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;where={&quot;playerName&quot;:&quot;Jonathan Walsh&quot;}&#x27; \
+  --data-urlencode &#x27;count=1&#x27; \
+  --data-urlencode &#x27;limit=0&#x27; \
+  http://api.plugy.io/1/classes/GameScore</pre></div></div></div></div>
+
+        <p>Since this requests a count as well as limiting to zero results, there will be a count but no results in the response.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;results&quot;: [
+
+  ],
+  &quot;count&quot;: 1337
+}</pre></div>
+
+        <p>With a nonzero limit, that request would return results as well as the count.</p>
+
+        <a href="#" name="queries-compound"></a><a href="#" class="section section_minor " name="queries-compound_anchor"></a>
+
+        <h2>Users</h2>
+
+        <p>Many apps have a unified login that works across the mobile app and other systems. Accessing user accounts through the REST API lets you build this functionality on top of Plugy.</p>
+
+        <p>In general, users have the same features as other objects, such as the flexible schema. The differences are that user objects must have a username and password, the password is automatically encrypted and stored securely, and Plugy enforces the uniqueness of the <code>username</code> and <code>email</code> fields.</p>
+
+        <a href="#" name="users-signup"></a><a href="#" class="section section_minor " name="users-signup_anchor"></a>
+        <h3>Signing Up</h3>
+
+        <p>Signing up a new user differs from creating a generic object in that the <code>username</code> and <code>password</code> fields are required. The password field is handled differently than the others; it is encrypted when stored in the Plugy Cloud and never returned to any client request.</p>
+
+        <p>You can ask Plugy to verify user email addresses in your application settings page. With this setting enabled, all new user registrations with an <code>email</code> field will generate an email confirmation at that address. You can check whether the user has verified their <code>email</code> with the <code>emailVerified</code> field.</p>
+
+        <p>To sign up a new user, send a POST request to the users root. You may add any additional fields. For example, to create a user with a specific phone number:</p>
+
+        <div class="code-container" id="container38"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/users&#x27;, json.dumps({
+       &quot;username&quot;: &quot;cooldude6&quot;,
+       &quot;password&quot;: &quot;p_n7!-e8&quot;,
+       &quot;phone&quot;: &quot;415-392-0202&quot;
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;username&quot;:&quot;cooldude6&quot;,&quot;password&quot;:&quot;p_n7!-e8&quot;,&quot;phone&quot;:&quot;415-392-0202&quot;}&#x27; \
+  http://api.plugy.io/1/users</pre></div></div></div></div>
+
+        <p>When the creation is successful, the HTTP response is a <code>201 Created</code> and the <code>Location</code> header contains the URL for the new user:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">Status: 201 Created
+Location: http://api.plugy.io/1/users/g7y9tkhB7O</pre></div>
+        <p>The response body is a JSON object containing the <code>EntityId</code>, the <code>createdAt</code> timestamp of the newly-created object, and the <code>sessionToken</code> which can be used to authenticate subsequent requests as this user:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;createdAt&quot;: &quot;2011-11-07T20:58:34.448Z&quot;,
+  &quot;_id&quot;: &quot;g7y9tkhB7O&quot;,
+  &quot;sessionToken&quot;: &quot;pnktnjyb996sj4p156gjtp4im&quot;
+}</pre></div>
+
+        <a href="#" name="users-login"></a><a href="#" class="section section_minor " name="users-login_anchor"></a>
+        <h3>Logging In</h3>
+
+        <p>After you allow users to sign up, you need to let them log in to their account with a username and password in the future. To do this, send a GET request to the <code>/1/login</code> endpoint with <code>username</code> and <code>password</code> as URL-encoded parameters:</p>
+
+        <div class="code-container" id="container39"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib,urllib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+params = urllib.urlencode({&quot;username&quot;:&quot;cooldude6&quot;,&quot;password&quot;:&quot;p_n7!-e8&quot;})
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/login?%s&#x27; % params, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -G \
+  --data-urlencode &#x27;username=cooldude6&#x27; \
+  --data-urlencode &#x27;password=p_n7!-e8&#x27; \
+  http://api.plugy.io/1/login</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing all the user-provided fields except <code>password</code>. It also contains the <code>createdAt</code>, <code>updatedAt</code>, <code>EntityId</code>, and <code>sessionToken</code> fields:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;username&quot;: &quot;cooldude6&quot;,
+  &quot;phone&quot;: &quot;415-392-0202&quot;,
+  &quot;createdAt&quot;: &quot;2011-11-07T20:58:34.448Z&quot;,
+  &quot;updatedAt&quot;: &quot;2011-11-07T20:58:34.448Z&quot;,
+  &quot;_id&quot;: &quot;g7y9tkhB7O&quot;,
+  &quot;sessionToken&quot;: &quot;pnktnjyb996sj4p156gjtp4im&quot;
+}</pre></div>
+
+        <a href="#" name="users-emailverification"></a><a href="#" class="section section_minor " name="users-emailverification_anchor"></a>
+        <h3>Retrieving Users</h3>
+
+        <p>You can also retrieve the contents of a user object by sending a GET request to the URL returned in the location header when it was created. For example, to retrieve the user created above:</p>
+
+        <div class="code-container" id="container41"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/users/g7y9tkhB7O&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/users/g7y9tkhB7O</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing all the user-provided fields except <code>password</code>. It also contains the <code>createdAt</code>, <code>updatedAt</code>, and <code>EntityId</code> fields:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;username&quot;: &quot;cooldude6&quot;,
+  &quot;phone&quot;: &quot;415-392-0202&quot;,
+  &quot;createdAt&quot;: &quot;2011-11-07T20:58:34.448Z&quot;,
+  &quot;updatedAt&quot;: &quot;2011-11-07T20:58:34.448Z&quot;,
+  &quot;_id&quot;: &quot;g7y9tkhB7O&quot;
+}</pre></div>
+
+        <a href="#" name="users-validating"></a><a href="#" class="section section_minor " name="users-validating_anchor"></a>
+        <h3>Validating Session Tokens / Retrieving Current User</h3>
+
+        <p>With a valid session token, you can send a GET request to the <code>/1/users/me</code> endpoint to retrieve the user associated with that session token:</p>
+
+        <div class="code-container" id="container42"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/users/me&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Session-Token&quot;: &quot;pnktnjyb996sj4p156gjtp4im&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Session-Token: pnktnjyb996sj4p156gjtp4im&quot; \
+  http://api.plugy.io/1/users/me</pre></div></div></div></div>
+
+        <p>The response matches the JSON object above for retrieving users.  If the session token is not valid, an error object is returned:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;code&quot;: 101,
+  &quot;error&quot;: &quot;invalid session&quot;
+}</pre></div>
+
+        <a href="#" name="users-updating"></a><a href="#" class="section section_minor " name="users-updating_anchor"></a>
+        <h3>Updating Users</h3>
+
+        <p>In normal usage, nobody except the user is allowed to modify their own data. To authenticate themselves, the user must add a <code>Session-Token</code> header to the request with the session token provided by the signup or login method.</p>
+
+        <p>To change the data on a user that already exists, send a PUT request to the user URL. Any keys you don't specify will remain unchanged, so you can update just a subset of the user's data. <code>username</code> and <code>password</code> may be changed, but the new username must not already be in use.</p>
+
+        <p>For example, if we wanted to change the phone number for <code>cooldude6</code>:</p>
+
+
+        <div class="code-container" id="container43"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/users/g7y9tkhB7O&#x27;, json.dumps({
+       &quot;phone&quot;: &quot;415-369-6201&quot;
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Session-Token&quot;: &quot;pnktnjyb996sj4p156gjtp4im&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Session-Token: pnktnjyb996sj4p156gjtp4im&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;phone&quot;:&quot;415-369-6201&quot;}&#x27; \
+  http://api.plugy.io/1/users/g7y9tkhB7O</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing just an <code>updatedAt</code> field with the timestamp of the update.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;updatedAt&quot;: &quot;2011-11-07T21:25:10.623Z&quot;
+}</pre></div>
+
+        <a href="#" name="users-querying"></a><a href="#" class="section section_minor " name="users-querying_anchor"></a>
+        <h3>Querying</h3>
+
+        <p>You can retrieve multiple users at once by sending a GET request to the root users URL. Without any URL parameters, this simply lists users:</p>
+
+        <div class="code-container" id="container44"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/users&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/users</pre></div></div></div></div>
+
+        <p>The return value is a JSON object that contains a <code>results</code> field with a JSON array that lists the objects.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;results&quot;: [
+    {
+      &quot;username&quot;: &quot;bigglesworth&quot;,
+      &quot;phone&quot;: &quot;650-253-0000&quot;,
+      &quot;createdAt&quot;: &quot;2011-11-07T20:58:06.445Z&quot;,
+      &quot;updatedAt&quot;: &quot;2011-11-07T20:58:06.445Z&quot;,
+      &quot;_id&quot;: &quot;3KmCvT7Zsb&quot;
+    },
+    {
+      &quot;username&quot;: &quot;cooldude6&quot;,
+      &quot;phone&quot;: &quot;415-369-6201&quot;,
+      &quot;createdAt&quot;: &quot;2011-11-07T20:58:34.448Z&quot;,
+      &quot;updatedAt&quot;: &quot;2011-11-07T21:25:10.623Z&quot;,
+      &quot;_id&quot;: &quot;g7y9tkhB7O&quot;
+    }
+  ]
+}</pre></div>
+
+        <p>All of the options for queries that work for regular objects also work for user objects, so check the section on <a href="#queries-basic">Querying Entity</a> for more details.</p>
+
+        <a href="#" name="users-deleting"></a><a href="#" class="section section_minor " name="users-deleting_anchor"></a>
+        <h3>Deleting Users</h3>
+
+        <p>To delete a user from the Plugy Cloud, send a DELETE request to its URL. You must provide the <code>Session-Token</code> header to authenticate. For example:</p>
+
+        <div class="code-container" id="container45"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;DELETE&#x27;, &#x27;/1/users/g7y9tkhB7O&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Session-Token&quot;: &quot;pnktnjyb996sj4p156gjtp4im&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X DELETE \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Session-Token: pnktnjyb996sj4p156gjtp4im&quot; \
+  http://api.plugy.io/1/users/g7y9tkhB7O</pre></div></div></div></div>
+
+        <a href="#" name="users-linking"></a><a href="#" class="section section_minor " name="users-linking_anchor"></a>
+        <h3>Linking Users</h3>
+        <p>Plugy allows you to link your users with services like Twitter and Facebook, enabling your users to sign up or log into your application using their existing identities. This is accomplished through the sign-up and update REST endpoints by providing authentication data for the service you wish to link to a user in the <code>authData</code> field. Once your user is associated with a service, the <code>authData</code> for the service will be stored with the user and is retrievable by logging in.</p>
+        <p><code>authData</code> is a JSON object with keys for each linked service containing the data below.  In each case, you are responsible for completing the authentication flow (e.g. OAuth 1.0a) to obtain the information the the service requires for linking.</p>
+        <p><strong><a href="http://developers.facebook.com/docs/authentication/">Facebook</a> <code>authData</code> contents:</strong></p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;facebook&quot;: {
+    &quot;id&quot;: &quot;user&#x27;s Facebook id number as a string&quot;,
+    &quot;access_token&quot;: &quot;an authorized Facebook access token for the user&quot;,
+    &quot;expiration_date&quot;: &quot;token expiration date of the format: yyyy-MM-dd&#x27;T&#x27;HH:mm:ss.SSS&#x27;Z&#x27;&quot;
+  }
+}</pre></div>
+
+        <p><strong><a href="http://dev.twitter.com/docs/auth/implementing-sign-twitter">Twitter</a> <code>authData</code> contents:</strong></p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;twitter&quot;: {
+    &quot;id&quot;: &quot;user&#x27;s Twitter id number as a string&quot;,
+    &quot;screen_name&quot;: &quot;user&#x27;s Twitter screen name&quot;,
+    &quot;consumer_key&quot;: &quot;your application&#x27;s consumer key&quot;,
+    &quot;consumer_secret&quot;: &quot;your application&#x27;s consumer secret&quot;,
+    &quot;auth_token&quot;: &quot;an authorized Twitter token for the user with your application&quot;,
+    &quot;auth_token_secret&quot;: &quot;the secret associated with the auth_token&quot;
+  }
+}</pre></div>
+
+        <p><strong>Anonymous user <code>authData</code> contents:</strong></p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;anonymous&quot;: {
+    &quot;id&quot;: &quot;random UUID with lowercase hexadecimal digits&quot;
+  }
+}</pre></div>
+
+        <h4>Signing Up and Logging In</h4>
+        <p>Signing a user up with a linked service and logging them in with that service uses the same POST request, in which the <code>authData</code> for the user is specified.  For example, to sign up or log in with a user's Twitter account:</p>
+
+        <div class="code-container" id="container46"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/users&#x27;, json.dumps({
+       &quot;authData&quot;: {
+         &quot;twitter&quot;: {
+           &quot;id&quot;: &quot;12345678&quot;,
+           &quot;screen_name&quot;: &quot;PlugyIt&quot;,
+           &quot;consumer_key&quot;: &quot;SaMpLeId3X7eLjjLgWEw&quot;,
+           &quot;consumer_secret&quot;: &quot;SaMpLew55QbMR0vTdtOACfPXa5UdO2THX1JrxZ9s3c&quot;,
+           &quot;auth_token&quot;: &quot;12345678-SaMpLeTuo3m2avZxh5cjJmIrAfx4ZYyamdofM7IjU&quot;,
+           &quot;auth_token_secret&quot;: &quot;SaMpLeEb13SpRzQ4DAIzutEkCE2LBIm2ZQDsP3WUU&quot;
+         }
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;authData&quot;: {
+          &quot;twitter&quot;: {
+            &quot;id&quot;: &quot;12345678&quot;,
+            &quot;screen_name&quot;: &quot;PlugyIt&quot;,
+            &quot;consumer_key&quot;: &quot;SaMpLeId3X7eLjjLgWEw&quot;,
+            &quot;consumer_secret&quot;: &quot;SaMpLew55QbMR0vTdtOACfPXa5UdO2THX1JrxZ9s3c&quot;,
+            &quot;auth_token&quot;: &quot;12345678-SaMpLeTuo3m2avZxh5cjJmIrAfx4ZYyamdofM7IjU&quot;,
+            &quot;auth_token_secret&quot;: &quot;SaMpLeEb13SpRzQ4DAIzutEkCE2LBIm2ZQDsP3WUU&quot;
+          }
+        }
+      }&#x27; \
+  http://api.plugy.io/1/users</pre></div></div></div></div>
+
+        <p>Plugy then verifies that the provided <code>authData</code> is valid and checks to see if a user is already associated with this data.  If so, it returns a status code of <code>200 OK</code> and the details (including a <code>sessionToken</code> for the user):</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">Status: 200 OK
+Location: http://api.plugy.io/1/users/uMz0YZeAqc</pre></div>
+        <p>With a response body like:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;username&quot;: &quot;Plugy&quot;,
+  &quot;createdAt&quot;: &quot;2012-02-28T23:49:36.353Z&quot;,
+  &quot;updatedAt&quot;: &quot;2012-02-28T23:49:36.353Z&quot;,
+  &quot;_id&quot;: &quot;uMz0YZeAqc&quot;,
+  &quot;sessionToken&quot;: &quot;samplei3l83eerhnln0ecxgy5&quot;,
+  &quot;authData&quot;: {
+    &quot;twitter&quot;: {
+      &quot;id&quot;: &quot;12345678&quot;,
+      &quot;screen_name&quot;: &quot;PlugyIt&quot;,
+      &quot;consumer_key&quot;: &quot;SaMpLeId3X7eLjjLgWEw&quot;,
+      &quot;consumer_secret&quot;: &quot;SaMpLew55QbMR0vTdtOACfPXa5UdO2THX1JrxZ9s3c&quot;,
+      &quot;auth_token&quot;: &quot;12345678-SaMpLeTuo3m2avZxh5cjJmIrAfx4ZYyamdofM7IjU&quot;,
+      &quot;auth_token_secret&quot;: &quot;SaMpLeEb13SpRzQ4DAIzutEkCE2LBIm2ZQDsP3WUU&quot;
+    }
+  }
+}</pre></div>
+
+        <p>If the user has never been linked with this account, you will instead receive a status code of <code>201 Created</code>, indicating that a new user was created:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">Status: 201 Created
+Location: http://api.plugy.io/1/users/uMz0YZeAqc</pre></div>
+        <p>The body of the response will contain the <code>EntityId</code>, <code>createdAt</code>, <code>sessionToken</code>, and an automatically-generated unique <code>username</code>.  For example:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;username&quot;: &quot;iwz8sna7sug28v4eyu7t89fij&quot;,
+  &quot;createdAt&quot;: &quot;2012-02-28T23:49:36.353Z&quot;,
+  &quot;_id&quot;: &quot;uMz0YZeAqc&quot;,
+  &quot;sessionToken&quot;: &quot;samplei3l83eerhnln0ecxgy5&quot;
+}</pre></div>
+
+        <h4>Linking</h4>
+        <p>Linking an existing user with a service like Facebook or Twitter uses a PUT request to associate <code>authData</code> with the user.  For example, linking a user with a Facebook account would use a request like this:</p>
+
+        <div class="code-container" id="container47"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/users/uMz0YZeAqc&#x27;, json.dumps({
+       &quot;authData&quot;: {
+         &quot;facebook&quot;: {
+           &quot;id&quot;: &quot;123456789&quot;,
+           &quot;access_token&quot;: &quot;SaMpLeAAibS7Q55FSzcERWIEmzn6rosftAr7pmDME10008bWgyZAmv7mziwfacNOhWkgxDaBf8a2a2FCc9Hbk9wAsqLYZBLR995wxBvSGNoTrEaL&quot;,
+           &quot;expiration_date&quot;: &quot;2012-02-28T23:49:36.353Z&quot;
+         }
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Session-Token&quot;: &quot;samplei3l83eerhnln0ecxgy5&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Session-Token: samplei3l83eerhnln0ecxgy5&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;authData&quot;: {
+          &quot;facebook&quot;: {
+            &quot;id&quot;: &quot;123456789&quot;,
+            &quot;access_token&quot;: &quot;SaMpLeAAibS7Q55FSzcERWIEmzn6rosftAr7pmDME10008bWgyZAmv7mziwfacNOhWkgxDaBf8a2a2FCc9Hbk9wAsqLYZBLR995wxBvSGNoTrEaL&quot;,
+            &quot;expiration_date&quot;: &quot;2012-02-28T23:49:36.353Z&quot;
+          }
+        }
+      }&#x27; \
+  http://api.plugy.io/1/users/uMz0YZeAqc</pre></div></div></div></div>
+
+        <p>After linking your user to a service, you can authenticate them using matching <code>authData</code>.</p>
+
+        <h4>Unlinking</h4>
+        <p>Unlinking an existing user with a service also uses a PUT request to clear <code>authData</code> from the user by setting the <code>authData</code> for the service to <code>null</code>.  For example, unlinking a user with a Facebook account would use a request like this:</p>
+
+        <div class="code-container" id="container48"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/users/uMz0YZeAqc&#x27;, json.dumps({
+       &quot;authData&quot;: {
+         &quot;facebook&quot;: null
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Session-Token&quot;: &quot;samplei3l83eerhnln0ecxgy5&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Session-Token: samplei3l83eerhnln0ecxgy5&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;authData&quot;: {
+          &quot;facebook&quot;: null
+        }
+      }&#x27; \
+  http://api.plugy.io/1/users/uMz0YZeAqc</pre></div></div></div></div>
+
+        <a href="#" name="users-security"></a><a href="#" class="section section_minor " name="users-security_anchor"></a>
+        <h3>Security</h3>
+
+        <p>When you access Plugy via the REST API key, access can be restricted by ACL just like in the iOS and Android SDKs. You can still read and modify acls via the REST API, just be accessing the <code>"ACL"</code> key of an object.</p>
+
+        <p>The ACL is formatted as a JSON object where the keys areRelations either object ids or the special key <code>"*"</code> to indicate public access permissions. The values of the ACL are "permission objects", JSON objects whose keys are the permission names and whose values are always <code>true</code>.</p>
+
+        <p>For example, if you want the user with id <code>"3KmCvT7Zsb"</code> to have read and write access to an object, plus the object should be publicly readable, that corresponds to an ACL of:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;3KmCvT7Zsb&quot;: {
+    &quot;read&quot;: true,
+    &quot;write&quot;: true
+  },
+  &quot;*&quot;: {
+    &quot;read&quot;: true
+  }
+}</pre></div>
+
+        <p>If you want to access your data ignoring all ACLs, you can use the master key provided on the Dashboard. Instead of the <code>REST-API-Key</code> header, set the <code>Master-Key</code> header. For backward compatibility, you can also do master-level authentication using HTTP Basic Auth, passing the application id as the username and the master key as the password. For security, the master key should not be distributed to end users, but if you are running code in a trusted environment, feel free to use the master key for authentication.</p>
+
+        <a href="#" name="roles"></a><a href="#" class="section section_major " name="roles_anchor"></a>
+        <h3>Security</h3>
+        <p>
+            When you access Plugy via the REST API key, access can be restricted by ACL just like in the iOS and Android SDKs.  You can still read and modify ACLs
+            via the REST API, just by accessing the <code>"ACL"</code> key of an object.
+        </p>
+
+        <p>
+            In addition to per-user permissions <a href="#users-security">as described above</a>, you can also specify role-level permissions to your Plugy objects.
+            Instead of specifying an <code>EntityId</code> as the key for a permission object as you do for users, you can instead specify a role's name with a
+            <code>"role:"</code> prefix as the key for a permission object.  You can use role-level permissions alongside user-level permissions to provide fine-grained
+            control over user access.
+        </p>
+
+        <p>
+            For example, to restrict an object to be readable by anyone in the "Members" role and writable by its creator and anyone in the "Moderators" role, you would
+            specify an ACL like this:
+        </p>
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;8TOXdXf3tz&quot;: {
+    &quot;write&quot;: true
+  },
+  &quot;role:Members&quot;: {
+    &quot;read&quot;: true
+  },
+  &quot;role:Moderators&quot;: {
+    &quot;write&quot;: true
+  }
+}</pre></div>
+
+        <p>
+            You are not required to specify read permissions for the user or the "Moderators" role if the user and role are already children of the "Members" role, since they
+            will inherit read permissions granted to "Members".
+        </p>
+
+        <a href="#" name="roles-hierarchy"></a><a href="#" class="section section_minor " name="roles-hierarchy_anchor"></a>
+        <h2>Files</h2>
+
+        <a href="#" name="files-uploading"></a><a href="#" class="section section_minor " name="files-uploading_anchor"></a>
+        <h3>Uploading Files</h3>
+
+        <p>To upload a file to Plugy, send a POST request to the files URL, postfixed with the name of the file. The request must contain the <code>Content-Type</code> header associated with the file. Keep in mind that files are limited to 10 megabytes. Here's a simple example that'll create a file named <code>hello.txt</code> containing a string:</p>
+
+        <div class="code-container" id="container57"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/files/hello.txt&#x27;, &#x27;Hello, World!&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;text/plain&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: text/plain&quot; \
+  -d &#x27;Hello, World!&#x27; \
+  http://api.plugy.io/1/files/hello.txt</pre></div></div></div></div>
+
+        <p>When the file upload is successful, the HTTP response is a <code>201 Created</code> and the <code>Location</code> header which contains the URL for the file:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">Status: 201 Created
+Location: http://files.parsetfss.com/bc9f32df-2957-4bb1-93c9-ec47d9870a05/tfss-db295fb2-8a8b-49f3-aad3-dd911142f64f-hello.txt</pre></div>
+        <p>The response body is a JSON object containing the <code>name</code> of the file, which is the original file name prefixed with a unique identifier in order to prevent name collisions. This means you can save files with the same name, and the files will not overwrite one another.
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;url&quot;: &quot;http://files.parsetfss.com/bc9f32df-2957-4bb1-93c9-ec47d9870a05/tfss-db295fb2-8a8b-49f3-aad3-dd911142f64f-hello.txt&quot;,
+  &quot;name&quot;: &quot;db295fb2-8a8b-49f3-aad3-dd911142f64f-hello.txt&quot;
+}</pre></div>
+
+        <p>To upload an image, the syntax is a little bit different. Here's an example that will upload the image <code>myPicture.jpg</code> from the current directory.<p>
+
+        <div class="code-container" id="container58"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/files/pic.jpg&#x27;, open(&#x27;myPicture.jpg&#x27;, &#x27;rb&#x27;).read(), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;image/jpeg&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: image/jpeg&quot; \
+  --data-binary &#x27;@myPicture.jpg&#x27; \
+  http://api.plugy.io/1/files/pic.jpg</pre></div></div></div></div>
+
+        <a href="#" name="files-associating"></a><a href="#" class="section section_minor " name="files-associating_anchor"></a>
+        <h3>Associating with Entity</h3>
+
+        <p>After files are uploaded, you can associate them with Plugy objects:</p>
+
+        <div class="code-container" id="container59"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/classes/PlayerProfile&#x27;, json.dumps({
+       &quot;name&quot;: &quot;Andrew&quot;,
+       &quot;picture&quot;: {
+         &quot;name&quot;: &quot;...profile.png&quot;,
+         &quot;__type&quot;: &quot;File&quot;
+       }
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;name&quot;: &quot;Andrew&quot;,
+        &quot;picture&quot;: {
+          &quot;name&quot;: &quot;...profile.png&quot;,
+          &quot;__type&quot;: &quot;File&quot;
+        }
+      }&#x27; \
+  http://api.plugy.io/1/classes/PlayerProfile</pre></div></div></div></div>
+
+        <p>Note that the name of the file in the request is not the local file name, but the name in the response of the previous upload operation.</p>
+
+        <a href="#" name="files-deleting"></a><a href="#" class="section section_minor " name="files-deleting_anchor"></a>
+        <h3>Deleting Files</h3>
+
+        <p>Users holding the master key are allowed to delete files using the REST API. To delete a file, send a DELETE request to the files URL, postfixed with the name of the file. Note that the name of the file must be the name in the response of the upload operation, rather than the original filename. Note that the <code>Master-Key</code> must be provided in headers.</p>
+
+        <div class="code-container" id="container60"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;DELETE&#x27;, &#x27;/1/files/...profile.png&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;Master-Key&quot;: &quot;${MASTER_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X DELETE \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;Master-Key: ${MASTER_KEY}&quot; \
+  http://api.plugy.io/1/files/...profile.png</pre></div></div></div></div>
+        <p>
+            Note that deleting a PFEntity with a file associated with it will not delete
+            the file. All files stored on Plugy should be deleted by using the above
+            explained API.
+        </p>
+
+
+        <a href="#" name="analytics"></a><a href="#" class="section section_major " name="analytics_anchor"></a>
+        <h2>Plugy Config</h2>
+
+        <p><code>Plugy Config</code> is a way to configure your applications remotely by storing a single configuration object on Plugy.
+            It enables you to add things like feature gating or a simple "Message of the day".
+            To start using <code>Plugy Config</code> you need to add a few key/value pairs (parameters) to your app on the Plugy Config Dashboard.</p>
+
+        <p><img alt="Config_editor" src="/img/rest_appconfig.png" style="border: 1px solid #eee; width: 80%" /></p>
+
+        <p>After that you will be able to fetch the config on the client by sending a <code>GET</code> request to config URL.
+            Here is a simple example that will fetch the <code>Plugy.Config</code>:</p>
+
+        <div class="code-container" id="container64"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/config&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/config</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing all the configuration parameters in the <code>params</code> field.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;params&quot;: {
+    &quot;welcomeMessage&quot;: &quot;Welcome to The Internet!&quot;,
+    &quot;winningNumber&quot;: 42
+  }
+}</pre></div>
+
+        <a href="#" name="push"></a><a href="#" class="section section_major " name="push_anchor"></a>
+        <h2>Push Notifications</h2>
+
+        <div class="callout_green">
+            To learn more about push check out our <a href="/docs/push_guide#top/REST">Push Notification Guide</a>!
+        </div>
+
+        <a href="#" name="installations"></a><a href="#" class="section section_major " name="installations_anchor"></a>
+        <h2>Installations</h2>
+
+        <a href="#" name="installations-uploading"></a><a href="#" class="section section_minor " name="installations-uploading_anchor"></a>
+        <h3>Uploading Installation Data</h3>
+
+        <p>An installation object represents an instance of your app being
+            installed on a device. These objects are used to store subscription
+            data for installations which have subscribed to one or more push
+            notification channels. Installations have a flexible schema, except
+            that the special fields below have special type and validation
+            requirements:</p>
+
+        <ul class="text">
+            <li><strong><code>badge</code></strong>: is a number field representing the last
+                known application badge for iOS installations.
+            <li><strong><code>channels</code></strong>:
+                An array of the channels to which a device is currently subscribed.</li>
+            <li><strong><code>timeZone</code></strong>:
+                The current time zone where the target device is located.</li>
+            <li><strong><code>deviceType</code></strong>:
+                The type of device, "ios", "android", "winrt", "winphone", or "dotnet"<em>(readonly)</em>.</li>
+            <li><strong><code>pushType</code></strong>:
+                This field is reserved for directing Plugy to the push delivery network to be used. If the device
+                is registered to receive pushes via GCM, this field will be marked "gcm". If this device is not using GCM,
+                and is using Plugy's push notification service, it will be blank <em>(readonly)</em>.</li>
+            <li><strong><code>installationId</code></strong>:
+                Universally Unique Identifier (UUID) for the device used by Plugy. It must be unique across all of an app's installations. <em>(readonly)</em>.</li>
+            <li><strong><code>deviceToken</code></strong>:
+                The Apple or Google generated token used to deliver messages to the APNs or GCM push networks respectively.</li>
+            <li><strong><code>channelUris</code></strong>:
+                The Microsoft-generated push URIs for Windows devices.</li>
+            <li><strong><code>appName</code></strong>:
+                The display name of the client application to which this installation belongs.</li>
+            <li><strong><code>appVersion</code></strong>:
+                The version string of the client application to which this installation belongs.</li>
+            <li><strong><code>parseVersion</code></strong>:
+                The version of the Plugy SDK which this installation uses.</li>
+            <li><strong><code>appIdentifier</code></strong>:
+                A unique identifier for this installation's client application. In iOS, this is the Bundle Identifier.</li>
+        </ul>
+
+        <p>Most of the time, installation data is modified by push-related
+            methods in the client SDK. For example,
+            calling <code>subscribeToChannel</code>
+            or <code>unsubscribeFromChannel</code> from the client SDK will
+            create an object for that installation if it doesn't yet exist and
+            update its channels, and calling <code>getSubscribedChannels</code>
+            from the client SDK will read subscription data from that
+            installation's object. The REST methods can be used to mimic these
+            operations. For instance, if you have an iOS device token then you
+            can subscribe it to push notifications by creating an installation
+            object for it with the desired <code>channels</code> list. You can
+            also perform operations which aren't possible through the client
+            SDK, like using a query over installations to find the set of
+            subscribers to a given channel.<p>
+
+        <p>Creating an installation object is similar to creating a generic
+            object, but the special installation fields listed above must pass
+            validation. For example, if you have a device token provided by the
+            Apple Push Notification service and would like to subscribe it to
+            the broadcast channel <code>""</code>, you can use the following
+            command:</p>
+
+        <div class="code-container" id="container65"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;POST&#x27;, &#x27;/1/installations&#x27;, json.dumps({
+       &quot;deviceType&quot;: &quot;ios&quot;,
+       &quot;deviceToken&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;,
+       &quot;channels&quot;: [
+         &quot;&quot;
+       ]
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X POST \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;deviceType&quot;: &quot;ios&quot;,
+        &quot;deviceToken&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;,
+        &quot;channels&quot;: [
+          &quot;&quot;
+        ]
+      }&#x27; \
+  http://api.plugy.io/1/installations</pre></div></div></div></div>
+
+        <p>When the creation is successful, the HTTP response is a <code>201
+            Created</code> and the <code>Location</code> header contains the URL
+            for the new installation:</p>
+
+        <div class="code parseTheme"><pre class="brush: bash;">Status: 201 Created
+Location: http://api.plugy.io/1/installations/mrmBZvsErB</pre></div>
+        <p>The response body is a JSON object containing
+            the <code>EntityId</code> and the <code>createdAt</code> timestamp
+            of the newly-created installation:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;createdAt&quot;: &quot;2012-04-28T17:41:09.106Z&quot;,
+  &quot;_id&quot;: &quot;mrmBZvsErB&quot;
+}</pre></div>
+
+        <a href="#" name="installations-retrieving"></a><a href="#" class="section section_minor " name="installations-retrieving_anchor"></a>
+        <h3>Retrieving Installations</h3>
+
+        <p>You can retrieve the contents of an installation object by
+            sending a GET request to the URL returned in the location header
+            when it was created. For example, to retrieve the installation
+            created above:</p>
+
+        <div class="code-container" id="container66"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/installations/mrmBZvsErB&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  http://api.plugy.io/1/installations/mrmBZvsErB</pre></div></div></div></div>
+
+        <p>The response body is a JSON object containing all the
+            user-provided fields, plus
+            the <code>createdAt</code>, <code>updatedAt</code>,
+            and <code>EntityId</code> fields:</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;deviceType&quot;: &quot;ios&quot;,
+  &quot;deviceToken&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;,
+  &quot;channels&quot;: [
+    &quot;&quot;
+  ],
+  &quot;createdAt&quot;: &quot;2012-04-28T17:41:09.106Z&quot;,
+  &quot;updatedAt&quot;: &quot;2012-04-28T17:41:09.106Z&quot;,
+  &quot;_id&quot;: &quot;mrmBZvsErB&quot;
+}</pre></div>
+
+        <a href="#" name="installations-updating"></a><a href="#" class="section section_minor " name="installations-updating_anchor"></a>
+        <h3>Updating Installations</h3>
+
+        <p>Installation objects can be updated by sending a PUT request to
+            the installation URL. For example, to subscribe the installation
+            above to the "foo" push channel:</p>
+
+        <div class="code-container" id="container67"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;PUT&#x27;, &#x27;/1/installations/mrmBZvsErB&#x27;, json.dumps({
+       &quot;deviceType&quot;: &quot;ios&quot;,
+       &quot;deviceToken&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;,
+       &quot;channels&quot;: [
+         &quot;&quot;,
+         &quot;foo&quot;
+       ]
+     }), {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;REST-API-Key&quot;: &quot;${REST_API_KEY}&quot;,
+       &quot;Content-Type&quot;: &quot;application/json&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X PUT \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;REST-API-Key: ${REST_API_KEY}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+        &quot;deviceType&quot;: &quot;ios&quot;,
+        &quot;deviceToken&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;,
+        &quot;channels&quot;: [
+          &quot;&quot;,
+          &quot;foo&quot;
+        ]
+      }&#x27; \
+  http://api.plugy.io/1/installations/mrmBZvsErB</pre></div></div></div></div>
+
+        <a href="#" name="installations-querying"></a><a href="#" class="section section_minor " name="installations-querying_anchor"></a>
+        <h3>Querying Installations</h3>
+
+        <p>You can retrieve multiple installations at once by sending a GET
+            request to the root installations URL. This functionality is not
+            available in the SDKs, so you must authenticate this method using
+            the <code>Master-Key</code> header in your request instead
+            of the <code>REST-API-Key</code> header. Your master key
+            allows you to bypass ACLs and should only be used from within a
+            trusted environment.<p>
+
+        <p>Without any URL parameters, a GET request simply lists
+            installations:</p>
+
+        <div class="code-container" id="container68"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;GET&#x27;, &#x27;/1/installations&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;Master-Key&quot;: &quot;${MASTER_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X GET \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;Master-Key: ${MASTER_KEY}&quot; \
+  http://api.plugy.io/1/installations</pre></div></div></div></div>
+
+        <p>The return value is a JSON object that contains a results field
+            with a JSON array that lists the users.</p>
+
+        <div class="code parseTheme"><pre class="brush: javascript;">{
+  &quot;results&quot;: [
+    {
+      &quot;deviceType&quot;: &quot;ios&quot;,
+      &quot;deviceToken&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;,
+      &quot;channels&quot;: [
+        &quot;&quot;
+      ],
+      &quot;createdAt&quot;: &quot;2012-04-28T17:41:09.106Z&quot;,
+      &quot;updatedAt&quot;: &quot;2012-04-28T17:41:09.106Z&quot;,
+      &quot;_id&quot;: &quot;mrmBZvsErB&quot;
+    },
+    {
+      &quot;deviceType&quot;: &quot;ios&quot;,
+      &quot;deviceToken&quot;: &quot;fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210&quot;,
+      &quot;channels&quot;: [
+        &quot;&quot;
+      ],
+      &quot;createdAt&quot;: &quot;2012-04-30T01:52:57.975Z&quot;,
+      &quot;updatedAt&quot;: &quot;2012-04-30T01:52:57.975Z&quot;,
+      &quot;_id&quot;: &quot;sGlvypFQcO&quot;
+    }
+  ]
+}</pre></div>
+
+        <p>All of the options for queries that work for regular objects also
+            work for installation objects, so check the section on
+            <a href="#queries-basic">Querying Entity</a> for more
+            details. By doing an array query over <code>channels</code>, for
+            example, you can find the set of devices subscribed to a given push
+            channel.</p>
+
+        <a href="#" name="installations-deleting"></a><a href="#" class="section section_minor " name="installations-deleting_anchor"></a>
+        <h3>Deleting Installations</h3>
+
+        <p>To delete an installation from the Plugy Cloud, send a DELETE request
+            to its URL. This functionality is not available in the client SDKs,
+            so you must authenticate this method using
+            the <code>Master-Key</code> header in your request instead
+            of the <code>REST-API-Key</code> header. Your master key
+            allows you to bypass ACLs and should only be used from within a
+            trusted environment. For example:</p>
+
+        <div class="code-container" id="container69"><div class="code_snippet"><div class="snippet_option" data-snippet-lang="python"><div class="code parseTheme"><pre class="brush: python;">import json,httplib
+connection = httplib.HTTPSConnection(&#x27;api.plugy.io&#x27;, 80)
+connection.connect()
+connection.request(&#x27;DELETE&#x27;, &#x27;/1/installations/mrmBZvsErB&#x27;, &#x27;&#x27;, {
+       &quot;Application-Id&quot;: &quot;${APPLICATION_ID}&quot;,
+       &quot;Master-Key&quot;: &quot;${MASTER_KEY}&quot;
+     })
+result = json.loads(connection.getresponse().read())
+print result</pre></div></div><div class="snippet_option" data-snippet-lang="curl"><div class="code parseTheme"><pre class="brush: bash;">curl -X DELETE \
+  -H &quot;Application-Id: ${APPLICATION_ID}&quot; \
+  -H &quot;Master-Key: ${MASTER_KEY}&quot; \
+  http://api.plugy.io/1/installations/mrmBZvsErB</pre></div></div></div></div>
+
+        <a href="#" name="cloudcode"></a><a href="#" class="section section_major " name="cloudcode_anchor"></a>
+
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>

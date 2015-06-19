@@ -1,0 +1,76 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Setting</h1>
+</div>
+
+<div class="wrapper-md" ng-controller="SettingEmailCtrl">
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      Email Settings
+    </div>
+    <div class="panel-body">
+      <form class="bs-example form-horizontal form-validation" name="replyemail">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Reply-to address</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control col-sm-10" name="replyaddress" ng-model="replyaddress" required>
+            <i class=" fa fa-fw fa-check text-success m-l-n-lg m-t-sm" style="position: absolute;" ng-show="email.replyaddress.$valid"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      Email Template
+    </div>
+    <div class="panel-body">
+
+      <form class="bs-example form-horizontal form-validation" name="email">
+        <div class="form-group">
+          <div class="col">
+            <p class="padder-lg">Customize the e-mail sent to your users when they reset their password or when we verify their email address. The following variables will be automatically filled in with their appropriate values:</p>
+            <ul class="list-unstyled m-l-lg">
+              <li><code>%username%</code> the user's display name</li>
+              <li><code>%email%</code> the user's email address</li>
+              <li><code>%appname%</code> your application's display name</li>
+              <li><code>%link%</code> the link the user must click to perform the requested action</li>
+            </ul>
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <div class="padder-lg m-b">
+            <i class="fa   fa-check-square "></i>
+            Email Verification Mail Template
+          </div>
+          <div class="padder-lg ">
+            <input type="text" class="form-control col-sm-10 m-b" name="titleverification" ng-model="verificationTitle" required>
+            <i class=" fa fa-fw fa-check text-success m-l-n-lg m-t-sm" style="position: absolute;" ng-show="email.titleverification.$valid"></i>
+          </div>
+          <div class="padder-lg m-t" lazy-load="textAngular">
+            <div text-angular ng-model="verificationhtmlVariable" class="btn-groups">
+            </div>
+          </div>
+        </div>
+
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+          <div class="padder-lg m-b">
+            <i class="fa   fa-check-square "></i>
+            Password Reset Mail Template
+          </div>
+          <div class="padder-lg ">
+            <input type="text" class="form-control col-sm-10 m-b" name="titlepassword" ng-model="passwordTitle" required>
+            <i class=" fa fa-fw fa-check text-success m-l-n-lg m-t-sm" style="position: absolute;" ng-show="email.titlepassword.$valid"></i>
+          </div>
+          <div class="padder-lg m-t" lazy-load="textAngular">
+            <div text-angular ng-model="passwordhtmlVariable" class="btn-groups">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

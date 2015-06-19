@@ -1,0 +1,31 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Setting</h1>
+</div>
+
+<div class="wrapper-md" ng-controller="SettingColloratorCtrl">
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      Collorators
+    </div>
+    <div class="panel-body">
+      <form class="bs-example form-horizontal form-validation" name="replyemail">
+        <div class="form-group text-center">
+          <p>Manage the collaborators that will be able to access your app.
+          <br />Your collaborators won't be able to share the app with someone else and won't be able to delete this app either.</p>
+       </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-2">
+            <input type="email" class="form-control col-sm-10" name="replyaddress" placeholder="Input the Collorator Email Address!!!" ng-model="replyaddress" required>
+            <i class=" fa fa-fw fa-check text-success m-l-n-lg m-t-sm" style="position: absolute;" ng-show="email.replyaddress.$valid"></i>
+
+          </div>
+          <div class="col-sm-4">
+          <button class="btn  btn-sm btn-danger  btn-addon" ng-click=""><i class="fa fa-send-o"></i>Invite collaborator</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

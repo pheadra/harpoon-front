@@ -1,0 +1,26 @@
+{
+  "name": "jquery-class",
+  "description": "OOP",
+  "version": "0.0.1",
+  "type": "component",
+  "keywords": [
+    "jquery",
+    "class",
+    "oop"
+  ],
+  "homepage" : "http://iamdenny.com",
+  "license": "MIT",
+  "authors" : [
+ 	{
+      "name": "Denny Lim",
+      "homepage": "http://iamdenny.com"
+    },
+    {
+      "name" : "SEUNGHAK CHOI",
+      "homepage" : ""
+    }
+  ],
+  "require": {
+    "components/jquery": ">=1.4"
+  }
+}

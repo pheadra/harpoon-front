@@ -1,0 +1,94 @@
+<div class="bg-light lter b-b wrapper-md">
+    <a href ui-sref="access.project">
+      <button class="btn btn-sm btn-default pull-right visible-sm visible-xs" ui-toggle-class="show" target="#email-menu"><i class="fa fa-bars"></i></button>
+      <button class="btn  btn-sm btn-danger  btn-addon" ng-click="open('sm')"><i class="fa fa-plus"></i>New Project</button>
+    </a>
+</div>
+<div class="wrapper-md" ng-controller="ProjectsController">
+<div class="row"  ng-repeat="project in user.projects track by $index" ng-if="$index % 3 == 0">
+    <div class="col-lg-4 animated fadeInRight"  ng-repeat="project in user.projects.slice($index, $index+3) ">
+        <div class="panel" >
+            <div class="panel-body">
+                <div class="clearfix ">
+                    <a href class="pull-left thumb-md avatar b-3x m-r">
+                        <img src="img/mobile.png" alt="...">
+                    </a>
+
+                    <div class="clear">
+                        <a href  ng-click="clickMenu($parent.$index + $index, 'dashboard')">
+                        <div class="h3 m-t-xs m-b-xs">
+                            {{project.title}}
+                            <a href  ng-click="clickMenu($parent.$index + $index, 'setting')">
+                            <button class=" btn btn-default no-shadow pull-right" ui-toggle-class="active">
+                                <i class="fa fa-gear"></i>
+                            </button>
+                            </a>
+                        </div>
+                        <small class="text-muted">{{project.company}}</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light dker wrapper m-t-n-xxs">
+                <span class="pull-right">Request</span>
+                <span class="h4">Active User</span>
+
+                <div class="text-center m-b-n m-t-sm">
+                    <div ng-init="data2=[50.32,45.23,47.56,36.25,53.85,40.15,41.25,50.15,57.14,36.15,97.26,50.15,45.32,47.19,37.75,25.15,56.34,50.35,47.25,53.15]"
+                         ui-jq="sparkline"
+                         ui-options="{{data2}}, {type:'line', height:65, width: '100%', lineWidth:2, valueSpots:{'0:':'#fff'}, lineColor:'#fff', spotColor:'#fff', fillColor:'', highlightLineColor:'#fff', spotRadius:3}"></div>
+
+                    <div ng-init="data3=[ 10,9,11,10,11,10,112,10,9,10,11,9,8 ]" ui-jq="sparkline"
+                         ui-options="{{data3}}, {type:'bar', height:45, barWidth:6, barSpacing:6, barColor:'{{app.color.primary}}'}"
+                         class="sparkline inline">loading...
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer bg-light lter wrapper">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <small class="text-muted block">Active</small>
+                        <span class="text-md">1,500</span>
+                    </div>
+                    <div class="col-xs-4">
+                        <small class="text-muted block">Inactive</small>
+                        <span class="text-md">10,430</span>
+                    </div>
+                    <div class="col-xs-4">
+                        <small class="text-muted block">Sleeping</small>
+                        <span class="text-md">400</span>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group no-radius alt">
+                <a class="list-group-item" href ng-click="clickMenu($parent.$index + $index, 'servermap')">
+                    <span class="badge bg-info">16</span>
+                    <i class="fa fa-database fa-fw text-muted"></i>
+                    ServerMap
+                </a>
+                <a class="list-group-item" href  ng-click="clickMenu($parent.$index + $index, 'transactionview')">
+                    <span class="badge bg-success">25</span>
+                    <i class="fa fa-comment fa-fw text-muted"></i>
+                    TransactionView
+                </a>
+
+                <a class="list-group-item" href  ng-click="clickMenu($parent.$index + $index, 'analysis')">
+                    <span class="badge bg-light">5</span>
+                    <i class="fa fa-user fa-fw text-muted"></i>
+                    Analysis
+                </a>
+                <a class="list-group-item" href  ng-click="clickMenu($parent.$index + $index, 'error')">
+                    <span class="badge bg-warning">5</span>
+                    <i class="fa fa-life-ring fa-fw text-muted"></i>
+                    Error
+                </a>
+                <a class="list-group-item" href  ng-click="clickMenu($parent.$index + $index, 'quickstart')">
+                    <i class="fa  fa-magic fa-fw text-muted"></i>
+                    QuickStart
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

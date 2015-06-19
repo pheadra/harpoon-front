@@ -1,0 +1,147 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = false;">
+    <!-- main -->
+    <div class="col">
+        <!-- main header -->
+        <div class="bg-light lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
+                    <small class="text-muted">Welcome to harpoon.io : APM (Application Performance Managemnet)</small>
+                </div>
+
+            </div>
+        </div>
+        <!-- / main header -->
+        <div class="wrapper-md">
+            <!-- stats -->
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row row-sm text-center">
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item">
+                                <div class="h1 text-info font-thin h1" ng-bind="realtimedata.activeusers"></div>
+                                <span class="text-muted text-xs">Active Users</span>
+
+                                <div class="top text-right w-full">
+                                    <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href class="block panel padder-v bg-primary item">
+                                <span class="text-white font-thin h1 block" ng-bind="realtimedata.tps"></span>
+                                <span class="text-muted text-xs">TPS</span>
+                <span class="bottom text-right w-full">
+                  <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                </span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href class="block panel padder-v bg-info item">
+                                <span class="text-white font-thin h1 block" ng-bind="realtimedata.webrequest"></span>
+                                <span class="text-muted text-xs">Request</span>
+                <span class="top text-left">
+                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                </span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item">
+                                <div class="font-thin h1" ng-bind="realtimedata.activeService"></div>
+                                <span class="text-muted text-xs">Active Service</span>
+
+                                <div class="bottom text-left">
+                                    <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 m-b-md">
+                            <div class="r bg-light dker item hbox no-border">
+                                <div class="col w-xs v-middle hidden-md">
+                                    <div ng-init="data1=[60,40]" ui-jq="sparkline"
+                                         ui-options="{{data1}}, {type:'pie', height:40, sliceColors:['{{app.color.warning}}','#fff']}"
+                                         class="sparkline inline"></div>
+                                </div>
+                                <div class="col dk padder-v r-r">
+                                    <div class="text-primary-dk font-thin h1"><span>{{realtimedata.responseTime}}</span>
+                                    </div>
+                                    <span class="text-muted text-xs">Average Response Time</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="panel wrapper">
+                        <h4 class="font-thin m-t-none m-b text-muted">Latest Requests</h4>
+
+                        <div ui-jq="plot" ui-refresh="reflash" ui-options="
+              [
+                { data: {{apirequestdatas}}, label:'Reqeust', points: { show: true, radius: 1},  splines: { show: true, tension: 0.4, lineWidth: 1, fill: 0.8 }},
+              ],
+              {
+                colors: ['{{app.color.info}}', '{{app.color.primary}}'],
+                series: { shadowSize: 3 },
+                xaxis:{ font: { color: '#a1a7ac' },
+                ticks: {{lineticks}}},
+                yaxis:{ font: { color: '#a1a7ac' }, min:0},
+                legend: { color: '#000000'  },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#808080' },
+                tooltip: true,
+                tooltipOpts: { content: '%y.0',  defaultTheme: false, shifts: { x: 10, y: -25 } }
+              }
+            " style="height:246px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / stats -->
+
+            <!-- service -->
+            <div class="panel hbox hbox-auto-xs no-border">
+                <div class=" wrapper col-sm-9">
+                    <i class="fa fa-circle-o text-info m-r-sm pull-right"></i>
+                    <h4 class="font-thin m-t-none m-b-none text-primary-lt">Crash Services</h4>
+                    <span class="m-b block text-sm text-muted">Service report of this Month</span>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <errorcount></errorcount>
+                        </div>
+                    </div>
+                </div>
+
+            <div class=" wrapper-lg bg-light dk r-r col-sm-3">
+                <h4 class="font-thin m-t-none m-b">Reports</h4>
+
+                <div class="">
+                    <div class="">
+                        <span class="pull-right text-primary">60%</span>
+                        <span>Total Crash Rate</span>
+                    </div>
+                    <progressbar value="60" class="progress-xs m-t-sm bg-white" animate="true"
+                                 type="primary"></progressbar>
+                    <div class="">
+                        <span class="pull-right text-info">35%</span>
+                        <span>Active Crash Rate</span>
+                    </div>
+                    <progressbar value="35" class="progress-xs m-t-sm bg-white" animate="true"
+                                 type="info"></progressbar>
+                    <div class="">
+                        <span class="pull-right text-warning">25%</span>
+                        <span>Ignored Crash Rate</span>
+                    </div>
+                    <progressbar value="25" class="progress-xs m-t-sm bg-white" animate="true"
+                                 type="warning"></progressbar>
+                </div>
+                <p class="text-muted">Dales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin
+                    venenatis</p>
+            </div>
+        </div>
+        </div>
+        <!-- / service -->
+    </div>
+</div>
+</div>
